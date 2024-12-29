@@ -1,7 +1,7 @@
 // src/app/page.tsx
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
-import Services from '@/components/Services'
+import ServiceCarousel from '@/components/ServiceCarousel'
 import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
 import AboutSection from '@/components/AboutSection'
@@ -13,7 +13,7 @@ export default function Home() {
       <main>
         <Hero />
         <AboutSection />
-        <Services />
+        <ServiceCarousel />
         <ContactForm />
       </main>
       <Footer />
