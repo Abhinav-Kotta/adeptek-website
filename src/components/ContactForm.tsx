@@ -51,10 +51,11 @@ const ContactForm: FC = () => {
         message: 'Message sent successfully! We will get back to you soon.'
       })
       setFormData({ name: '', email: '', message: '' })
-    } catch (error) {
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : 'Failed to send message. Please try again later.'
       setSubmitStatus({
         type: 'error',
-        message: 'Failed to send message. Please try again later.'
+        message: errorMessage
       })
     } finally {
       setIsSubmitting(false)
