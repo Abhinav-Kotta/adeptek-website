@@ -1,5 +1,6 @@
 "use client"
 import { FC, useState, ChangeEvent, FormEvent } from 'react'
+import { Loader2 } from 'lucide-react'
 
 interface FormData {
   name: string;
@@ -14,6 +15,10 @@ const ContactForm: FC = () => {
     message: ''
   })
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' })
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -26,14 +31,34 @@ const ContactForm: FC = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitStatus({ type: null, message: '' })
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    // Reset form
-    setFormData({ name: '', email: '', message: '' })
-    setIsSubmitting(false)
-    alert('Message sent successfully!')
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to send message')
+      }
+
+      setSubmitStatus({
+        type: 'success',
+        message: 'Message sent successfully! We will get back to you soon.'
+      })
+      setFormData({ name: '', email: '', message: '' })
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Failed to send message. Please try again later.'
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -47,6 +72,13 @@ const ContactForm: FC = () => {
             </p>
           </div>
           <div className="max-w-xl mx-auto">
+            {submitStatus.type && (
+              <div className={`mb-6 p-4 rounded-lg ${
+                submitStatus.type === 'success' ? 'bg-green-900/50 text-green-300' : 'bg-red-900/50 text-red-300'
+              }`}>
+                {submitStatus.message}
+              </div>
+            )}
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-1.5 sm:mb-2">Name</label>
@@ -58,7 +90,8 @@ const ContactForm: FC = () => {
                   onChange={handleChange}
                   required
                   placeholder="Your name"
-                  className="w-full px-3 sm:px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-400 text-sm sm:text-base"
+                  disabled={isSubmitting}
+                  className="w-full px-3 sm:px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-400 text-sm sm:text-base disabled:opacity-60"
                 />
               </div>
               <div>
@@ -71,7 +104,8 @@ const ContactForm: FC = () => {
                   onChange={handleChange}
                   required
                   placeholder="your.email@example.com"
-                  className="w-full px-3 sm:px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-400 text-sm sm:text-base"
+                  disabled={isSubmitting}
+                  className="w-full px-3 sm:px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-400 text-sm sm:text-base disabled:opacity-60"
                 />
               </div>
               <div>
@@ -84,15 +118,21 @@ const ContactForm: FC = () => {
                   required
                   rows={4}
                   placeholder="Tell us about your project..."
-                  className="w-full px-3 sm:px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-400 text-sm sm:text-base"
+                  disabled={isSubmitting}
+                  className="w-full px-3 sm:px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-400 text-sm sm:text-base disabled:opacity-60"
                 />
               </div>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 sm:py-3 px-6 sm:px-8 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 sm:py-3 px-6 sm:px-8 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base inline-flex items-center justify-center"
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    Sending...
+                  </>
+                ) : 'Send Message'}
               </button>
             </form>
           </div>
