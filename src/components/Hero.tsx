@@ -1,8 +1,16 @@
+"use client"
 import { FC } from 'react'
 
 const Hero: FC = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
-    <section className="relative min-h-screen px-4 sm:px-6 lg:px-8 overflow-hidden flex items-center justify-center">
+    <section className="relative min-h-screen px-4 sm:px-6 lg:px-8 overflow-hidden flex items-center">
       {/* Background image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -22,18 +30,24 @@ const Hero: FC = () => {
       </div>
 
       <div className="relative w-full max-w-7xl mx-auto pt-16 sm:pt-24 pb-12">
-        <div className="max-w-lg sm:max-w-2xl mx-auto text-center px-4">
+        <div className="max-w-lg sm:max-w-2xl px-4">
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient">
             Transform Your Business with Modern IT Solutions
           </h1>
           <p className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8">
             We help businesses leverage cutting-edge technology to drive growth and innovation
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="w-full sm:w-auto bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-lg transition-colors backdrop-blur-sm">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="w-full sm:w-auto bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-lg transition-colors backdrop-blur-sm"
+            >
               Get Started
             </button>
-            <button className="w-full sm:w-auto border border-blue-500 text-blue-400 hover:bg-blue-900/30 font-semibold py-3 px-8 rounded-lg transition-colors backdrop-blur-sm">
+            <button 
+              onClick={() => scrollToSection('about')}
+              className="w-full sm:w-auto border border-blue-500 text-blue-400 hover:bg-blue-900/30 font-semibold py-3 px-8 rounded-lg transition-colors backdrop-blur-sm"
+            >
               Learn More
             </button>
           </div>

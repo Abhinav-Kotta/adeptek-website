@@ -2,7 +2,7 @@ import { Code2, Shield, Database, Cloud } from 'lucide-react';
 
 const AboutSection = () => {
   return (
-    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
+    <section id="about" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white">Why Choose Adeptek</h2>

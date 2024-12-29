@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     const { name, email, message } = await request.json()
 
     const data = await resend.emails.send({
-      from: 'Acme <onboarding@resend.dev>',
+      from: 'Adeptek <onboarding@resend.dev>',
       to: ['abhinav.kotta@gmail.com'],
       subject: `New Contact Form Submission from ${name}`,
       replyTo: email,
@@ -22,7 +22,7 @@ Message: ${message}
 
     return NextResponse.json(data)
   } catch (err: unknown) {
-    const errorMessage = err instanceof Error ? err.message : 'Failed to send email'
+    const errorMessage = err instanceof Error ? err.message : 'Failed to send email, lmao'
     return NextResponse.json(
       { error: errorMessage }, 
       { status: 500 }
