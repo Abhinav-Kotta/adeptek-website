@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, CheckCircle, Monitor, Shield, Wifi, MessageSquare } from 'lucide-react';
-import { ServiceItem, NavItem, BenefitItem } from '../types';
+import { ServiceItem, BenefitItem } from '../types';
 
 const HomePage: React.FC = () => {
   const services: ServiceItem[] = [
