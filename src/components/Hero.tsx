@@ -1,6 +1,5 @@
 "use client"
 import { FC } from 'react'
-import Link from 'next/link'
 
 const Hero: FC = () => {
   const scrollToSection = (sectionId: string) => {
