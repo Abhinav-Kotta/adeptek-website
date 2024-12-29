@@ -1,6 +1,15 @@
+"use client"
 import { FC } from 'react'
+import Link from 'next/link'
 
 const Hero: FC = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section className="relative min-h-screen px-4 sm:px-6 lg:px-8 overflow-hidden flex items-center">
       {/* Background image */}
@@ -30,10 +39,16 @@ const Hero: FC = () => {
             We help businesses leverage cutting-edge technology to drive growth and innovation
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="w-full sm:w-auto bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-lg transition-colors backdrop-blur-sm">
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="w-full sm:w-auto bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-lg transition-colors backdrop-blur-sm"
+            >
               Get Started
             </button>
-            <button className="w-full sm:w-auto border border-blue-500 text-blue-400 hover:bg-blue-900/30 font-semibold py-3 px-8 rounded-lg transition-colors backdrop-blur-sm">
+            <button 
+              onClick={() => scrollToSection('about')}
+              className="w-full sm:w-auto border border-blue-500 text-blue-400 hover:bg-blue-900/30 font-semibold py-3 px-8 rounded-lg transition-colors backdrop-blur-sm"
+            >
               Learn More
             </button>
           </div>
