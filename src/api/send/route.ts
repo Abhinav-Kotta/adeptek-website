@@ -22,7 +22,7 @@ Message: ${message}
 
     return NextResponse.json(data)
   } catch (err: unknown) {
-    const errorMessage = err instanceof Error ? err.message : 'Failed to send email'
+    const errorMessage = err instanceof Error ? err.message : 'Failed to send email, lmao'
     return NextResponse.json(
       { error: errorMessage }, 
       { status: 500 }
