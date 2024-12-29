@@ -15,7 +15,7 @@ const AboutSection = () => {
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold mb-4 text-white">Our Experience</h3>
             <p className="text-gray-300">
-              After 10 years of delivering cutting-edge IT solutions, we've refined our approach to help businesses thrive in the digital age. Our comprehensive expertise spans across modern technologies and methodologies.
+              After 10 years of delivering cutting-edge IT solutions, we&apos;ve refined our approach to help businesses thrive in the digital age. Our comprehensive expertise spans across modern technologies and methodologies.
             </p>
             <div className="grid grid-cols-2 gap-4">
               {[

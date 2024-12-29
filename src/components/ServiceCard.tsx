@@ -1,6 +1,5 @@
 // src/components/ServiceCard.tsx
 import { FC } from 'react'
-import { LucideIcon } from 'lucide-react'
 
 interface ServiceCardProps {
   icon: React.ReactNode;

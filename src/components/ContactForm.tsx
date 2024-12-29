@@ -44,7 +44,7 @@ const ContactForm: FC = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Get In Touch</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Have a project in mind? Let's discuss how we can help transform your business
+              Have a project in mind? Let&apos;s discuss how we can help transform your business
             </p>
           </div>
           <div className="max-w-xl mx-auto">
