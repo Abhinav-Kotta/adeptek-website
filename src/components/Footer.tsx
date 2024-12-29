@@ -18,10 +18,11 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="bg-gray-800 py-12 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-gray-800 py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="space-y-4">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 md:grid-cols-4">
+          {/* Company Info */}
+          <div className="col-span-2 sm:col-span-1 space-y-4">
             <div className="flex items-center">
               <CircuitBoard className="w-6 h-6 text-blue-500" />
               <span className="ml-2 text-lg font-bold">Adeptek</span>
@@ -31,9 +32,10 @@ const Footer = () => {
             </p>
           </div>
           
-          <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-gray-400">
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h3 className="font-semibold text-sm sm:text-base">Quick Links</h3>
+            <ul className="space-y-2 text-gray-400 text-sm">
               <li>
                 <Link href="#services" className="hover:text-blue-500 transition-colors">
                   Services
@@ -52,9 +54,10 @@ const Footer = () => {
             </ul>
           </div>
           
-          <div>
-            <h3 className="font-semibold mb-4">Services</h3>
-            <ul className="space-y-2 text-gray-400">
+          {/* Services */}
+          <div className="space-y-4">
+            <h3 className="font-semibold text-sm sm:text-base">Services</h3>
+            <ul className="space-y-2 text-gray-400 text-sm">
               <li>Cloud Solutions</li>
               <li>Custom Development</li>
               <li>Data Analytics</li>
@@ -62,8 +65,9 @@ const Footer = () => {
             </ul>
           </div>
           
-          <div>
-            <h3 className="font-semibold mb-4">Connect</h3>
+          {/* Connect */}
+          <div className="space-y-4">
+            <h3 className="font-semibold text-sm sm:text-base">Connect</h3>
             <div className="flex space-x-4">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
@@ -72,14 +76,15 @@ const Footer = () => {
                   className="text-gray-400 hover:text-white transition-colors"
                   aria-label={label}
                 >
-                  <Icon className="w-6 h-6" />
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
               ))}
             </div>
           </div>
         </div>
         
-        <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
+        {/* Copyright */}
+        <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400 text-xs sm:text-sm">
           <p>© {new Date().getFullYear()} Adeptek. All rights reserved.</p>
         </div>
       </div>

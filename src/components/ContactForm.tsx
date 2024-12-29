@@ -1,4 +1,3 @@
-// src/components/ContactForm.tsx
 "use client"
 import { FC, useState, ChangeEvent, FormEvent } from 'react'
 
@@ -38,19 +37,19 @@ const ContactForm: FC = () => {
   }
 
   return (
-    <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-gray-800 rounded-lg p-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Get In Touch</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+        <div className="bg-gray-800 rounded-lg p-4 sm:p-6 lg:p-8">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Get In Touch</h2>
+            <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto">
               Have a project in mind? Let&apos;s discuss how we can help transform your business
             </p>
           </div>
           <div className="max-w-xl mx-auto">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
+                <label htmlFor="name" className="block text-sm font-medium mb-1.5 sm:mb-2">Name</label>
                 <input
                   id="name"
                   type="text"
@@ -59,11 +58,11 @@ const ContactForm: FC = () => {
                   onChange={handleChange}
                   required
                   placeholder="Your name"
-                  className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-400"
+                  className="w-full px-3 sm:px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-400 text-sm sm:text-base"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+                <label htmlFor="email" className="block text-sm font-medium mb-1.5 sm:mb-2">Email</label>
                 <input
                   id="email"
                   type="email"
@@ -72,11 +71,11 @@ const ContactForm: FC = () => {
                   onChange={handleChange}
                   required
                   placeholder="your.email@example.com"
-                  className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-400"
+                  className="w-full px-3 sm:px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-400 text-sm sm:text-base"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
+                <label htmlFor="message" className="block text-sm font-medium mb-1.5 sm:mb-2">Message</label>
                 <textarea
                   id="message"
                   name="message"
@@ -85,13 +84,13 @@ const ContactForm: FC = () => {
                   required
                   rows={4}
                   placeholder="Tell us about your project..."
-                  className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-400"
+                  className="w-full px-3 sm:px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-400 text-sm sm:text-base"
                 />
               </div>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 sm:py-3 px-6 sm:px-8 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
