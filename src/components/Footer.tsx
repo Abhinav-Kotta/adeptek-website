@@ -24,7 +24,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center">
               <CircuitBoard className="w-6 h-6 text-blue-500" />
-              <span className="ml-2 text-lg font-bold">TechPro</span>
+              <span className="ml-2 text-lg font-bold">Adeptek</span>
             </div>
             <p className="text-gray-400 text-sm">
               Empowering businesses through innovative technology solutions.
@@ -80,7 +80,7 @@ const Footer = () => {
         </div>
         
         <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
-          <p>© {new Date().getFullYear()} TechPro. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Adeptek. All rights reserved.</p>
         </div>
       </div>
     </footer>

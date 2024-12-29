@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import '@/app/globals.css'
 
 export const metadata: Metadata = {
-  title: 'TechPro Consulting | Modern IT Solutions',
+  title: 'Adeptek Consulting | Modern IT Solutions',
   description: 'Professional IT consulting services',
 }
 

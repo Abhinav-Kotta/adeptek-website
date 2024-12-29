@@ -25,7 +25,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <CircuitBoard className="w-8 h-8 text-blue-500" />
-            <span className="ml-2 text-xl font-bold">TechPro</span>
+            <span className="ml-2 text-xl font-bold">Adeptek</span>
           </div>
 
           <div className="hidden md:block">
